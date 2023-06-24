@@ -1,8 +1,5 @@
-const express = require("express");
-
-const port = 8080;
-const app = express();
-
-
-app.get("/", (req, res) => res.send("Hello World!"));
-app.listen(port, () => console.log(`Server started ${port} port.`));
+const http = require('http');
+const server = http.createServer(function(req, res){
+    console.log(req.url, req.headers, req.method);
+});
+server.listen(3000);
