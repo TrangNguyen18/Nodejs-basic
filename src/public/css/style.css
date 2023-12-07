@@ -1,0 +1,9 @@
+.image{
+    width: 500px;
+    text-align: center;
+}
+.body{
+    font-size: 14;
+    font-style: italic;
+    padding: 10px 5px 10px 5px;
+}
