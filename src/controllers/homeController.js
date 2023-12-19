@@ -1,10 +1,14 @@
 const getHomepage = (req, res) => {
-    res.render('sample.ejs');
+    res.render('home.ejs');
 };
-const login = (req, res) => {
+const addUser = (req, res) => {
     res.render('user.ejs');
 };
-const forgotPw = (req,res)=>{
+const forgotPw = (req, res)=>{
     res.send ('Do you want to reset pw ?')
-}
-module.exports={getHomepage, login, forgotPw};
+};
+const postAddNewUser = (req, res)=>{
+    console.log('>>> check response:', req.body)
+    // res.send ('Create user successfully')
+};
+module.exports={getHomepage, addUser ,postAddNewUser, forgotPw};
