@@ -1,7 +1,9 @@
 const pool = require('../config/pgConfig');
 const connection = require('../config/pgConfig');
-const getHomepage = (req, res) => {
-    res.render('home.ejs');
+const getHomepage = async (req, res) => {
+    const userList = await connection.query(`select * from users`);
+    //console.log(userList);
+    return res.render('home.ejs',{users : userList.rows});
     
 };
 const addUser = (req, res) => {
@@ -10,14 +12,11 @@ const addUser = (req, res) => {
 const forgotPw = (req, res)=>{
     res.send ('Do you want to reset pw ?')
 };
-const postAddNewUser = async(req, res)=>{
+const postAddNewUser = async(req, res) => {
     let email = req.body.email;
     let name = req.body.username;
-    console.log('user = ',name, 'email =', email);
-    const sql  = 'Insert into users (name, email) values (? ,?)';
-    const [results, fields] = connection.query(sql,[name, email]);
-   // console.log(results);
-    //res.send('Tao user thanh cong')
+    const results = await connection.query(`insert into users (name, email) values ('${name}','${email}')`);
+    res.redirect('/');
 }
 module.exports={getHomepage, addUser ,postAddNewUser, forgotPw};
 
