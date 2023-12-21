@@ -9,6 +9,6 @@ const forgotPw = (req, res)=>{
 };
 const postAddNewUser = (req, res)=>{
     console.log('>>> check response:', req.body)
-    // res.send ('Create user successfully')
+    res.send ('Create user successfully')
 };
 module.exports={getHomepage, addUser ,postAddNewUser, forgotPw};

@@ -4,6 +4,6 @@ const {addUser, getHomepage, postAddNewUser, forgotPw} = require('../controllers
 router.get('/',getHomepage);
 router.get('/adduser',addUser);
 router.get('/trang',forgotPw);
-router.post('/create-user',postAddNewUser);
+router.post('/createUser',postAddNewUser);
 
 module.exports = router
