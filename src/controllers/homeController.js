@@ -1,7 +1,8 @@
 const pool = require('../config/pgConfig');
 const connection = require('../config/pgConfig');
+const {getUsers} = require('../services/CRUDservice');
 const getHomepage = async (req, res) => {
-    const userList = await connection.query(`select * from users`);
+    const userList = await getUsers();
     //console.log(userList);
     return res.render('home.ejs',{users : userList.rows});
     

@@ -18,11 +18,15 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
+          <th>Action</th>
         </tr>
         <% for (let i = 0; i < users.length; i++) { %>
             <tr>
                 <td><%= users[i].name %></td>
                 <td><%= users[i].email %></td>
+                <td class="button"><button>Edit</button>
+                <button>Delete</button>
+            </td>
               </tr>
         <% } %>
       </table>    
