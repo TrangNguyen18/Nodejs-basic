@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Add a new user</title>
+    <title>Update a User</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
-    <form action="/createUser" method="POST">
+    <form action="/updateUser" method="post">
         <fieldset>
-            <legend>Add new user</legend>
-
+            <legend>Update a User</legend>
+            <div class="body">
+                <input type="hidden" name="id" value="<%= userEdit.id %>">
+            </div>
             <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
+            <input type="text" id="username" name="username" value="<%= userEdit.name %>"><br>
             <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email"><br>
+            <input type="text" id="email" name="email" value="<%= userEdit.email %>"><br>
             <div class="body">
                 <button>Save</button>
-                <input type="button" value="Cancel" onclick="location.href='/'">
             </div>
         </fieldset>
     </form>
